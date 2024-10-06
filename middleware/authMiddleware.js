@@ -15,6 +15,8 @@ const schema = Joi.object({
 })
 
 const validateInput = (req,res,next)=>{
+    if(Object.keys(req.body).length === 0) res.sendStatus(400)
+    else
     schema.validateAsync(req.body).then(()=>{
         next()
     })
