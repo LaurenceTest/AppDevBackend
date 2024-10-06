@@ -5,8 +5,8 @@ const router = express.Router()
 const UserController = require("../controllers/userController.cjs")
 
 
-router.post("/register",bodyParser,validateInput,UserController.register)
-router.post("/login",bodyParser,validateInput,UserController.login)
+router.post("/register",validateInput,UserController.register)
+router.post("/login",validateInput,UserController.login)
 router.get("/profile",UserController.getProfile)
 
 module.exports = router;
