@@ -1,11 +1,17 @@
+require("dotenv").config()
 const UserModel = require("../models/userModel.cjs")
+const jwt = require('jsonwebtoken')
 
 const UserController = {
     login: (req,res)=>{
         try {
-            const {email} = req.body
+            const {email,username} = req.body
             if(UserModel.findUser(email) !== null){
-                res.status(201).send({isApproved:true})
+                const token = jwt.sign({
+                    email,
+                    username
+                },process.env.ACCESS_TOKEN)
+                res.status(201).send({isApproved:true,user:token})
             }else res.status(200).send({isApproved:false})
         } catch (error) {
             res.status(500).send("An error has occurred. Please try again later")
@@ -23,7 +29,12 @@ const UserController = {
         }
     },
     getProfile: (req,res)=>{
-        res.status(503).send("Currently Unavailable")
+        try {
+            const user = UserModel.findUser(req.user.email)
+            res.status(200).send(user)
+        } catch (error) {
+            res.sendStatus(500)
+        }
     }
 }
 
