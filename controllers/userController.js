@@ -17,6 +17,7 @@ const UserController = {
             }
             else res.sendStatus(403)
         } catch (error) {
+            console.error(error)
             res.sendStatus(500)
         }
     },
@@ -28,6 +29,7 @@ const UserController = {
                 res.sendStatus(201)
             }else res.status(403).send({msg:"User already exists"})
         } catch (error) {
+            console.error(error)
             res.sendStatus(500)
         }
     },
@@ -41,6 +43,7 @@ const UserController = {
             }
             else res.sendStatus(404)
         } catch (error) {
+            console.error(error);
             res.sendStatus(500)
         }
     }

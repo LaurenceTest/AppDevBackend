@@ -18,6 +18,7 @@ const rateLimiterMiddleware = (req,res,next)=>{
         }
         next()
     } catch (error) {
+        console.error(error)
         res.sendStatus(500)        
     }
 }
