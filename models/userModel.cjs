@@ -10,9 +10,15 @@ const UserModel = {
     get(id){
         return users.get(id)
     },
-    findUser(email){
+    findUserByEmail(email){
         for(const user of users.values()){
             if(user.email === email) return user
+        }
+        return null
+    },
+    findUserByName(username){
+        for(const user of users.values()){
+            if(user.username === username) return user
         }
         return null
     }
