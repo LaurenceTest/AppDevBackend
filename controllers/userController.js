@@ -7,7 +7,6 @@ const UserController = {
         try {
             const {email,username,password} = req.body
             const user = UserModel.findUserByEmail(email) ?? UserModel.findUserByName(username)
-            console.log(user)
             if(user !== null && user?.password === password){
                 const token = jwt.sign({
                     email:user.email,
