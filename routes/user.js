@@ -1,5 +1,6 @@
 const express = require("express")
-const {validateInput,authenticateToken} = require("../middleware/authMiddleware")
+const authenticateToken = require("../middleware/authMiddleware")
+const validateInput = require("../middleware/validationMiddleware.js")
 const router = express.Router()
 const UserController = require("../controllers/userController.js")
 

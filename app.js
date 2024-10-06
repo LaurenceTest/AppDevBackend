@@ -1,6 +1,6 @@
 const express = require('express');
 const routes = require('./routes/user')
-const {logRequest} = require('./middleware/authMiddleware');
+const logRequest = require('./middleware/logMiddleware');
 
 const app = express()
 app.use(express.json())
