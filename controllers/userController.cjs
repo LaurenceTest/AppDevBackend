@@ -31,7 +31,8 @@ const UserController = {
     getProfile: (req,res)=>{
         try {
             const user = UserModel.findUser(req.user.email)
-            res.status(200).send(user)
+            if(user) res.status(200).send(user)
+            else res.sendStatus(404)
         } catch (error) {
             res.sendStatus(500)
         }
