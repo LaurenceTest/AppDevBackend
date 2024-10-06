@@ -6,6 +6,7 @@ const UserController = {
     login: (req,res)=>{
         try {
             const {email,username,password} = req.body
+            //Checks if user or email exists
             const user = UserModel.findUserByEmail(email) ?? UserModel.findUserByName(username)
             if(user !== null && user?.password === password){
                 const token = jwt.sign({

@@ -1,5 +1,10 @@
 const Joi = require("joi")
 
+/**
+ * Username allows alphanumeric, with 3-32 characters only
+ * Password only allows a to Z and 0 to 9, with 3-30 characters
+ * Email uses Joi email validation
+ */
 const schema = Joi.object({
     username: Joi.string()
     .alphanum()

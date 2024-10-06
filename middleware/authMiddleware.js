@@ -2,8 +2,9 @@ require("dotenv").config()
 const schema = require("../utils/userValidator")
 const jwt = require("jsonwebtoken")
 
-
+//Uses a schema to validate
 const validateInput = (req,res,next)=>{
+    //Checks if the request is empty
     if(Object.keys(req.body).length === 0) res.sendStatus(400)
     else
     schema.validateAsync(req.body).then(()=>{
@@ -14,6 +15,7 @@ const validateInput = (req,res,next)=>{
     })
 }
 
+//Authenticates the Bearer token
 const authenticateToken = (req,res,next)=>{
     const authHeader = req.headers["authorization"]
     const token = authHeader?.split(' ')[1]

@@ -4,6 +4,7 @@ const users = []
 let increment = 0
 
 const UserModel = {
+    //Adding a user autoincrements the id
     create(user){
         users.push({id:increment++,...user})
     },
