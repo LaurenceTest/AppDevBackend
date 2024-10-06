@@ -1,5 +1,5 @@
 require("dotenv").config()
-const UserModel = require("../models/userModel.cjs")
+const UserModel = require("../models/userModel.js")
 const jwt = require('jsonwebtoken')
 
 const UserController = {
