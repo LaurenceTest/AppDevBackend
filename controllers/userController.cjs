@@ -22,7 +22,7 @@ const UserController = {
             const {email} = req.body
             if(UserModel.findUser(email) === null){
                 UserModel.create(req.body)
-                res.sendStatus(200)
+                res.sendStatus(201)
             }else res.status(403).send({msg:"User already exists"})
         } catch (error) {
             res.sendStatus(500)
