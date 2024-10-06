@@ -1,5 +1,4 @@
 const express = require("express")
-const bodyParser = require("body-parser").json()
 const {validateInput,authenticateToken} = require("../middleware/authMiddleware")
 const router = express.Router()
 const UserController = require("../controllers/userController.cjs")
