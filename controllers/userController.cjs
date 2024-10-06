@@ -14,7 +14,7 @@ const UserController = {
                 res.status(201).send({isApproved:true,user:token})
             }else res.status(200).send({isApproved:false})
         } catch (error) {
-            res.status(500).send("An error has occurred. Please try again later")
+            res.sendStatus(500)
         }
     },
     register: (req,res)=>{
@@ -25,7 +25,7 @@ const UserController = {
                 res.status(200).send({isApproved:true})
             }else res.status(200).send({isApproved:false})
         } catch (error) {
-            res.status(500).send("An error has occurred. Please try again later")
+            res.sendStatus(500)
         }
     },
     getProfile: (req,res)=>{

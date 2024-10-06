@@ -19,7 +19,7 @@ const validateInput = (req,res,next)=>{
         next()
     })
     .catch((error)=>{
-        res.status(403).send({isApproved:false,msg:error.details[0].message})
+        res.status(403).send({msg:error.details[0].message})
     })
 }
 
