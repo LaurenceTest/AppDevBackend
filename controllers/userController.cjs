@@ -11,8 +11,8 @@ const UserController = {
                     email,
                     username
                 },process.env.ACCESS_TOKEN)
-                res.status(201).send({isApproved:true,user:token})
-            }else res.status(200).send({isApproved:false})
+                res.status(200).send({user:token})
+            }else res.sendStatus(403)
         } catch (error) {
             res.sendStatus(500)
         }
@@ -22,8 +22,8 @@ const UserController = {
             const {email} = req.body
             if(UserModel.findUser(email) === null){
                 UserModel.create(req.body)
-                res.status(200).send({isApproved:true})
-            }else res.status(200).send({isApproved:false})
+                res.sendStatus(200)
+            }else res.status(403).send({msg:"User already exists"})
         } catch (error) {
             res.sendStatus(500)
         }
